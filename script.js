@@ -8,12 +8,19 @@ function addR() {
     alert("Clicked Add Row"); // Replace this line with your code.
     let grid = document.getElementById("grid");
     let row = grid.insertRow(-1);
-    numRows++;
+    ++numRows;
 }
 
 // Add a column
 function addC() {
     alert("Clicked Add Col"); // Replace this line with your code.
+    let row = document.getElementsByTagName("tr");
+    for(let i = 0; i < row.length; i++ )
+    {
+        let cell = row[i].insertCell(-1);
+    }
+    ++numCols;
+    
 }
 
 // Remove a row
