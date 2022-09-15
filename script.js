@@ -33,6 +33,12 @@ function removeR() {
 // Remove a column
 function removeC() {
     alert("Clicked Remove Col"); // Replace this line with your code.
+    let rows = document.getElementsByTagName("tr");
+    for(let i = 0; i < rows.length; i++)
+    {
+        rows[i].deleteCell(-1);
+    }
+    
 }
 
 // Set global variable for selected color
