@@ -1,6 +1,7 @@
 tr,td{
     border:1px;
     border-style: solid;
+    border: solid 1px red;
 }
 td{
     height: 50px;
