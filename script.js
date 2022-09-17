@@ -18,6 +18,11 @@ function addC() {
     for(let i = 0; i < row.length; i++ )
     {
         let cell = row[i].insertCell(-1);
+        //give every cell an onclick event: change cell color to selected color
+        cell.onclick = (click) => {
+            let color = selectColor();
+            cell.style.backgroundColor = color;
+        };
     }
     ++numCols;
     
