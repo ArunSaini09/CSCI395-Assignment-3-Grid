@@ -76,4 +76,9 @@ function fillAll(){
 // Clear all cells
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
+    const cells = document.getElementsByTagName("td");
+    for(let i = 0; i < cells.length; i++) {
+        //can use removeProperty("property-name") as well
+        cells[i].style.backgroundColor = "";
+    }
 }
