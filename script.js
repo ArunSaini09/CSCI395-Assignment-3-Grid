@@ -28,6 +28,7 @@ function removeR() {
     alert("Clicked Remove Row"); // Replace this line with your code.
     let grid = document.getElementById("grid");
     grid.deleteRow(-1);
+    --numRows;
 }
 
 // Remove a column
@@ -38,6 +39,7 @@ function removeC() {
     {
         rows[i].deleteCell(-1);
     }
+    --numCols;
     
 }
 
@@ -45,6 +47,7 @@ function removeC() {
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
     console.log(colorSelected);
+    return colorSelected;
 }
 
 // Fill all uncolored cells
@@ -55,6 +58,12 @@ function fillU(){
 // Fill all cells
 function fillAll(){
     alert("Clicked Fill All"); // Replace this line with your code.
+    const cells = document.getElementsByTagName("td");
+    console.log(cells);
+    let color = selectColor();
+    for(let i = 0; i < cells.length; i++) {
+        cells[i].style.backgroundColor = color;
+    }
 }
 
 // Clear all cells
