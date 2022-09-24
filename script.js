@@ -5,15 +5,37 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
-    let grid = document.getElementById("grid");
-    let row = grid.insertRow(-1);
+    if(numCols < 1)
+    {
+        let grid = document.getElementById("grid");
+        let row = grid.insertRow(-1);
+        //add cell to row
+        let cell = row.insertCell(-1);
+        //increment cols
+        ++numCols;
+        //give every cell an onclick event: change cell color to selected color
+        cell.onclick = (click) => {
+        let color = selectColor();
+        cell.style.backgroundColor = color;
+    };
+    } else if(numCols > 0) {
+        let row = grid.insertRow(-1);
+        for(let i =0; i < numCols; i++){
+            //add cell to row
+            let cell = row.insertCell(-1);
+            //give every cell an onclick event: change cell color to selected color
+            cell.onclick = (click) => {
+            let color = selectColor();
+            cell.style.backgroundColor = color;
+            };
+        }
+    }
+
     ++numRows;
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
     let row = document.getElementsByTagName("tr");
     for(let i = 0; i < row.length; i++ )
     {
@@ -30,7 +52,6 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
     let grid = document.getElementById("grid");
     grid.deleteRow(-1);
     --numRows;
@@ -38,7 +59,6 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
     let rows = document.getElementsByTagName("tr");
     for(let i = 0; i < rows.length; i++)
     {
@@ -57,7 +77,6 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
     const cells = document.getElementsByTagName("td");
     let color = selectColor();
     for(let i = 0; i < cells.length; i++) {
@@ -70,7 +89,6 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
     const cells = document.getElementsByTagName("td");
     let color = selectColor();
     for(let i = 0; i < cells.length; i++) {
@@ -80,7 +98,6 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
     const cells = document.getElementsByTagName("td");
     for(let i = 0; i < cells.length; i++) {
         //can use removeProperty("property-name") as well
